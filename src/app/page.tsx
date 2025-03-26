@@ -5,9 +5,10 @@ import {
 } from "~/server/db/schema";
 import DriveContents from "./drive-contents";
 
-export default async function GoogleDriveClone() {
-  const files = await db.select().from(fileSchema);
-  const folders = await db.select().from(folderSchema);
-
-  return <DriveContents files={files} folders={folders} />;
+export default function HomePage() {
+  return (
+    <h1 className="flex min-h-screen items-center justify-center text-2xl">
+      Mega Clone ^_^
+    </h1>
+  );
 }
