@@ -10,6 +10,6 @@
 
 ## 3-25-2025
 
-- [ ] Change folder to link components, romove all client state
+- [x] Change folder to link components, romove all client state
 - [ ] Clean up the database and data fetching patterns
 - [ ] Real homepage
