@@ -11,5 +11,5 @@
 ## 3-25-2025
 
 - [x] Change folder to link components, romove all client state
-- [ ] Clean up the database and data fetching patterns
+- [x] Clean up the database and data fetching patterns
 - [ ] Real homepage
