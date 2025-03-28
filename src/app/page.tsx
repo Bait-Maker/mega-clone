@@ -1,14 +1,15 @@
-import { db } from "~/server/db";
-import {
-  files_table as fileSchema,
-  folders_table as folderSchema,
-} from "~/server/db/schema";
-import DriveContents from "./drive-contents";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <h1 className="flex min-h-screen items-center justify-center text-2xl">
-      Mega Clone ^_^
-    </h1>
+    <main className="flex min-h-screen flex-col items-center justify-center gap-5 text-2xl">
+      <h1>Mega Clone ^_^</h1>
+      <Link
+        href={"/f/1"}
+        className="rounded-sm bg-emerald-400 px-4 py-2 hover:bg-emerald-500"
+      >
+        MOCK LOGIN
+      </Link>
+    </main>
   );
 }
