@@ -1,14 +1,11 @@
 import { Folder as FolderIcon, FileIcon, Trash2Icon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
+import { deleteFile } from "~/server/actions";
 import type { files_table, folders_table } from "~/server/db/schema";
 
 export function FileRow(props: { file: typeof files_table.$inferSelect }) {
   const { file } = props;
-
-  function deleteFile(fileId: number) {
-    console.log("move this function to server actions");
-  }
 
   return (
     <li
