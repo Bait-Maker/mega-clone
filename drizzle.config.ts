@@ -13,5 +13,5 @@ export default {
     database: env.SINGLESTORE_DB_NAME,
     ssl: {},
   },
-  tablesFilter: ["mega-clone_*"],
+  // tablesFilter: ["mega_clone_*"],
 } satisfies Config;
