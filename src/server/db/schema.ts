@@ -17,7 +17,7 @@ export const files_table = createTable(
     id: bigint("id", { mode: "number", unsigned: true })
       .primaryKey()
       .autoincrement(),
-    ownerId: text("owner").notNull(),
+    ownerId: text("owner_id").notNull(),
 
     name: text("name").notNull(),
     size: int("size").notNull(),
@@ -41,7 +41,7 @@ export const folders_table = createTable(
     id: bigint("id", { mode: "number", unsigned: true })
       .primaryKey()
       .autoincrement(),
-    ownerId: text("owner").notNull(),
+    ownerId: text("owner_id").notNull(),
     name: text("name").notNull(),
     parent: bigint("parent", { mode: "number", unsigned: true }),
     createdAt: timestamp("created_at").notNull().defaultNow(),

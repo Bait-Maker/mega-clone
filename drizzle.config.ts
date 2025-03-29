@@ -5,6 +5,7 @@ import { env } from "~/env";
 export default {
   schema: "./src/server/db/schema.ts",
   dialect: "singlestore",
+  tablesFilter: ["mega_clone_*"],
   dbCredentials: {
     host: env.SINGLESTORE_HOST,
     port: parseInt(env.SINGLESTORE_PORT),
@@ -13,5 +14,4 @@ export default {
     database: env.SINGLESTORE_DB_NAME,
     ssl: {},
   },
-  // tablesFilter: ["mega_clone_*"],
 } satisfies Config;

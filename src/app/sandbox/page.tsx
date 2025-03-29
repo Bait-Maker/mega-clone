@@ -48,7 +48,9 @@ export default async function SandboxPage() {
           });
         }}
       >
-        <button type="submit">Seed</button>
+        <button type="submit" className="cursor-pointer">
+          Create File
+        </button>
       </form>
     </div>
   );

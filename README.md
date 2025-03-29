@@ -10,9 +10,10 @@
 
 ## 3-27-2025
 
-- [ ] Add ownership to files and folders
-- [ ] Upload files to the right folder
+- [x] Add ownership to files and folders
+- [x] Upload files to the right folder
 - [x] Delete files button
+- [ ] Add analytics
 - [ ] Add delte function
 - [ ] Allow files that aren't images to be uploaded
 - [ ] Real homepage
