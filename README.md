@@ -36,3 +36,10 @@
 ### Gray out a row when it's being deleted
 
 - changing state and css or useTransition hook [startTransition, pending] = useTransition()
+
+# Music Side
+
+## TODO
+
+- [ ] Merge drive dash board UI with music UI
+- [ ] Create a side navbar to switch between drive and music storage
