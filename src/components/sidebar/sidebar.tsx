@@ -25,7 +25,7 @@ type Option = {
 const OPTIONS: Option[] = [
   { title: "Dashboard", icon: FiHome, href: "/dashboard" },
   { title: "Playlists", icon: FiMusic, href: "/music" },
-  { title: "Drive", icon: FiMusic, href: "/drive" },
+  { title: "Drive", icon: FiHardDrive, href: "/drive" },
   { title: "Products", icon: FiShoppingCart, href: "/dashboard" },
   { title: "Tags", icon: FiTag, href: "/dashboard" },
   { title: "Analytics", icon: FiBarChart, href: "/dashboard" },

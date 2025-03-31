@@ -50,6 +50,5 @@
 
 - finished setup for navbar navigation
 
-- [ ] Use context for sidebar selected state
 - [ ] Setp music schema
 - [ ] Create playlist UI

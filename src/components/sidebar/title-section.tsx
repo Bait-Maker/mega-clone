@@ -1,8 +1,15 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
 import { motion } from "motion/react";
-import { FiChevronDown } from "react-icons/fi";
 
 export function TitleSection(props: { open: boolean }) {
+  const { user } = useUser();
+
   return (
     <div className="mb-3 border-b border-neutral-500 pb-3">
       <div className="flex cursor-pointer items-center justify-between rounded-md py-1 transition-colors hover:bg-emerald-800">
@@ -23,13 +30,14 @@ export function TitleSection(props: { open: boolean }) {
               transition={{ delay: 0.125 }}
             >
               <span className="block text-xs font-semibold text-slate-200">
-                TomIsLoading
+                {user?.fullName}
               </span>
-              <span className="block text-xs text-slate-300">Pro Plan</span>
+              <span className="block text-xs text-slate-300">
+                {user?.primaryEmailAddress?.toString()}
+              </span>
             </motion.div>
           )}
         </div>
-        {props.open && <FiChevronDown className="mr-2 text-slate-100" />}
       </div>
     </div>
   );
