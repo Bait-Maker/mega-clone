@@ -4,7 +4,6 @@ import { ChevronRight } from "lucide-react";
 import { FileRow, FolderRow } from "./file-row";
 import type { files_table, folders_table } from "~/server/db/schema";
 import Link from "next/link";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { UploadButton } from "~/components/utils/uploadthing";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +17,7 @@ export default function DriveContents(props: {
   const navigate = useRouter();
 
   return (
-    <div className="min-h-screen w-full bg-gray-900 p-8 text-gray-100">
+    <div className="bg-background min-h-screen w-full p-8 text-gray-100">
       <div className="mx-auto max-w-6xl">
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center">
@@ -40,17 +39,20 @@ export default function DriveContents(props: {
               </div>
             ))}
           </div>
-          <div>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </div>
+
+          <UploadButton
+            className="ut-button:bg-emerald-800 ut-button:hover:bg-emerald-700 ut-button:transition-colors ut-allowed-content:hidden"
+            endpoint="driveUploader"
+            onClientUploadComplete={() => {
+              navigate.refresh();
+            }}
+            input={{
+              folderId: props.currentFolderId,
+            }}
+          />
         </div>
-        <div className="rounded-lg bg-gray-800 shadow-xl">
-          <div className="border-b border-gray-700 px-6 py-4">
+        <div className="bg-foreground rounded-lg shadow-xl">
+          <div className="border-border border-b px-6 py-4">
             <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-400">
               <div className="col-span-6">Name</div>
               <div className="col-span-2">Type</div>
@@ -67,15 +69,6 @@ export default function DriveContents(props: {
             ))}
           </ul>
         </div>
-        <UploadButton
-          endpoint="driveUploader"
-          onClientUploadComplete={() => {
-            navigate.refresh();
-          }}
-          input={{
-            folderId: props.currentFolderId,
-          }}
-        />
       </div>
     </div>
   );

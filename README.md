@@ -50,5 +50,6 @@
 
 - finished setup for navbar navigation
 
+- [ ] Fix selected sidebar state on first login ()
 - [ ] Setp music schema
 - [ ] Create playlist UI

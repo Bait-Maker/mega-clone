@@ -21,7 +21,7 @@ export default function HomePage() {
       <form action={loginAction}>
         <Button
           type="submit"
-          className="rounded-sm bg-emerald-400 px-4 py-2 text-xl font-semibold text-black hover:bg-emerald-500"
+          className="cursor-pointer rounded-sm bg-emerald-400 px-4 py-2 text-xl font-semibold text-black hover:bg-emerald-500"
         >
           Login
         </Button>

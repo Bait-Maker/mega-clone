@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FiBarChart,
   FiHome,
@@ -15,6 +15,8 @@ import Option from "~/components/sidebar/option";
 import { TitleSection } from "~/components/sidebar/title-section";
 import ToggleClose from "~/components/sidebar/toggle-close";
 import type { IconType } from "react-icons/lib";
+import { usePathname } from "next/navigation";
+import { useAuth, useUser } from "@clerk/nextjs";
 
 type Option = {
   title: string;
@@ -24,7 +26,7 @@ type Option = {
 
 const OPTIONS: Option[] = [
   { title: "Dashboard", icon: FiHome, href: "/dashboard" },
-  { title: "Playlists", icon: FiMusic, href: "/music" },
+  { title: "Playlists", icon: FiMusic, href: "/playlists" },
   { title: "Drive", icon: FiHardDrive, href: "/drive" },
   { title: "Products", icon: FiShoppingCart, href: "/dashboard" },
   { title: "Tags", icon: FiTag, href: "/dashboard" },
@@ -33,8 +35,12 @@ const OPTIONS: Option[] = [
 ];
 
 export const Sidebar = () => {
+  const pathname = usePathname();
+
   const [open, setOpen] = useState(true);
-  const [selected, setSelected] = useState("Dashboard");
+  const [selected, setSelected] = useState(
+    `${pathname.charAt(1).toUpperCase() + pathname.slice(2)}`,
+  );
 
   return (
     <motion.nav
