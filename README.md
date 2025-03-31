@@ -9,7 +9,7 @@
 - [x] Add analytics
 - [x] Make sure sort oder is consistent
 - [x] Add delete
-- [ ] Real homepage + onboarding
+- [x] Real homepage + onboarding
 
 ## Fun follow ups
 
@@ -41,7 +41,15 @@
 
 ## TODO
 
-- [ ] Merge drive dash board UI with music UI
-- [ ] Create a switch between drive and music storage
-- [ ] Handle authentication for music page
+- [x] Merge drive with dashboard
+- [x] Create a navigation between drive and music storage
+- [x] Handle authentication for music page
 - [ ] Setup music DB and schema
+
+## 3-30-25
+
+- finished setup for navbar navigation
+
+- [ ] Use context for sidebar selected state
+- [ ] Setp music schema
+- [ ] Create playlist UI
