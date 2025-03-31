@@ -42,4 +42,6 @@
 ## TODO
 
 - [ ] Merge drive dash board UI with music UI
-- [ ] Create a side navbar to switch between drive and music storage
+- [ ] Create a switch between drive and music storage
+- [ ] Handle authentication for music page
+- [ ] Setup music DB and schema

@@ -1,9 +1,12 @@
-import { Sidebar } from "./sidebar";
+import { auth } from "@clerk/nextjs/server";
+import { Sidebar } from "~/components/sidebar/sidebar";
+import { redirect } from "next/navigation";
 
-export default function MusicPage() {
-  return (
-    <main className="bg-background flex">
-      <Sidebar />
-    </main>
-  );
+export default async function MusicPage() {
+  const session = await auth();
+
+  if (!session.userId) {
+    return redirect("/sign-in");
+  }
+  return <main className="bg-background flex"></main>;
 }

@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { PostHogProvider } from "./_providers/posthog-provider";
+import { Sidebar } from "../components/sidebar/sidebar";
 export const metadata: Metadata = {
   title: "Mega Clone",
   description: "Upload files and stuff",
