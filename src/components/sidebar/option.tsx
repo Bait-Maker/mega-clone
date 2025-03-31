@@ -1,5 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { motion } from "motion/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { IconType } from "react-icons/lib";
 
 type OptionProps = {
@@ -21,11 +23,18 @@ export default function Option({
   notifs,
   href,
 }: OptionProps) {
+  const router = useRouter();
+
   return (
-    <motion.button
+    <motion.a
+      href={href}
       layout
-      onClick={() => setSelected(title)}
-      className={`relative flex h-10 w-full items-center rounded-md transition-colors ${selected === title ? "bg-emerald-800 text-white" : "text-slate-100 hover:bg-emerald-800"}`}
+      onClick={(e) => {
+        setSelected(title);
+        e.preventDefault();
+        router.replace(href!);
+      }}
+      className={`relative flex h-10 w-full cursor-pointer items-center rounded-md transition-colors ${selected === title ? "bg-emerald-800 text-white" : "text-slate-100 hover:bg-emerald-800"}`}
     >
       <motion.div
         layout
@@ -59,6 +68,6 @@ export default function Option({
           {notifs}
         </motion.span>
       )}
-    </motion.button>
+    </motion.a>
   );
 }

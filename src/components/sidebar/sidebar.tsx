@@ -19,17 +19,17 @@ import type { IconType } from "react-icons/lib";
 type Option = {
   title: string;
   icon: IconType;
-  href?: string;
+  href: string;
 };
 
 const OPTIONS: Option[] = [
-  { title: "Dashboard", icon: FiHome },
-  { title: "Playlists", icon: FiMusic },
-  { title: "Drive", icon: FiHardDrive, href: "/drive" },
-  { title: "Products", icon: FiShoppingCart },
-  { title: "Tags", icon: FiTag },
-  { title: "Analytics", icon: FiBarChart },
-  { title: "Members", icon: FiUsers },
+  { title: "Dashboard", icon: FiHome, href: "/dashboard" },
+  { title: "Playlists", icon: FiMusic, href: "/music" },
+  { title: "Drive", icon: FiMusic, href: "/drive" },
+  { title: "Products", icon: FiShoppingCart, href: "/dashboard" },
+  { title: "Tags", icon: FiTag, href: "/dashboard" },
+  { title: "Analytics", icon: FiBarChart, href: "/dashboard" },
+  { title: "Members", icon: FiUsers, href: "/dashboard" },
 ];
 
 export const Sidebar = () => {
@@ -56,6 +56,7 @@ export const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
               open={open}
+              href={o.href}
             />
           );
         })}

@@ -18,11 +18,14 @@ export default function DriveContents(props: {
   const navigate = useRouter();
 
   return (
-    <div className="min-h-screen bg-gray-900 p-8 text-gray-100">
+    <div className="min-h-screen w-full bg-gray-900 p-8 text-gray-100">
       <div className="mx-auto max-w-6xl">
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center">
-            <Link href={"/f/1"} className="mr-2 text-gray-300 hover:text-white">
+            <Link
+              href={`/f/${props.parents[0]?.id}`}
+              className="mr-2 text-gray-300 hover:text-white"
+            >
               My Drive
             </Link>
             {props.parents.map((folder, index) => (

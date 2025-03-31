@@ -5,7 +5,7 @@ import { FiChevronDown } from "react-icons/fi";
 export function TitleSection(props: { open: boolean }) {
   return (
     <div className="mb-3 border-b border-neutral-500 pb-3">
-      <div className="flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-emerald-800">
+      <div className="flex cursor-pointer items-center justify-between rounded-md py-1 transition-colors hover:bg-emerald-800">
         <div className="flex items-center gap-2">
           <div className="flex items-center justify-center pl-1">
             <SignedOut>
