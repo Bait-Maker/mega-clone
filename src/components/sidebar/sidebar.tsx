@@ -16,7 +16,6 @@ import { TitleSection } from "~/components/sidebar/title-section";
 import ToggleClose from "~/components/sidebar/toggle-close";
 import type { IconType } from "react-icons/lib";
 import { usePathname } from "next/navigation";
-import { useAuth, useUser } from "@clerk/nextjs";
 
 type Option = {
   title: string;
@@ -26,8 +25,8 @@ type Option = {
 
 const OPTIONS: Option[] = [
   { title: "Dashboard", icon: FiHome, href: "/dashboard" },
-  { title: "Playlists", icon: FiMusic, href: "/playlists" },
   { title: "Drive", icon: FiHardDrive, href: "/drive" },
+  { title: "Playlists", icon: FiMusic, href: "/playlists" },
   { title: "Products", icon: FiShoppingCart, href: "/dashboard" },
   { title: "Tags", icon: FiTag, href: "/dashboard" },
   { title: "Analytics", icon: FiBarChart, href: "/dashboard" },
@@ -41,6 +40,17 @@ export const Sidebar = () => {
   const [selected, setSelected] = useState(
     `${pathname.charAt(1).toUpperCase() + pathname.slice(2)}`,
   );
+
+  useEffect(() => {
+    //? Don't think this is the best solution...
+    function forceDriveSelected() {
+      if (selected.indexOf("F") === 0 && selected !== "Drive") {
+        setSelected("Drive");
+      }
+    }
+
+    forceDriveSelected();
+  }, [usePathname]);
 
   return (
     <motion.nav
