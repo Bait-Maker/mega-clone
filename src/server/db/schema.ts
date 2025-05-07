@@ -55,3 +55,5 @@ export const folders_table = createTable(
 );
 
 export const DB_FolderType = typeof folders_table.$inferSelect;
+
+//* - Playlist and audio file database

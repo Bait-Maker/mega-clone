@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { Pully, Presets } from "pully";
+import { MusicCard } from "~/components/ui/musicCard";
 
 export default function PlaylistsPage() {
   const getSession = async () => {
@@ -13,33 +13,33 @@ export default function PlaylistsPage() {
 
   getSession();
 
-  async function downloadVideoAction(url: string) {
-    const pully = new Pully();
-
-    const video = await pully.query(
-      "https://www.youtube.com/watch?v=L_jWHffIx5E",
-    );
-    console.log(
-      `${video.videoTitle} by ${video.channelName} has ${video.views} views!`,
-    );
-
-    const options = {
-      url: url,
-      preset: Presets.FourK,
-      progress: (data: { percent: string }) => console.log(data.percent + "%"), // Progress reporter callback...
-    };
-  }
+  //* Probably gonna use cobalt.tools
 
   return (
-    <main className="bg-background flex">
-      <div>
-        <form>
-          <label>Download from Url</label>
-          <input
-            type="text"
-            placeholder="https://www.youtube.com/watch?v=L_jWHffIx5E"
-          />
-        </form>
+    <main className="bg-background max-h-screen w-full p-8">
+      <div className="mt-8 mr-8 flex items-center justify-between">
+        <h2 className="text-xl font-medium tracking-wide text-stone-200">
+          Your Playlists
+        </h2>
+        <div>
+          <button className="bg-background hover:bg-foreground mr-4 cursor-pointer rounded-lg border-2 border-solid border-emerald-800 p-3.5 text-stone-200">
+            Upload
+          </button>
+          <a
+            href="https://cobalt.tools/"
+            target="_blank"
+            className="cursor-pointer rounded-lg bg-emerald-800 p-4 text-amber-50 hover:bg-emerald-900"
+          >
+            Download
+          </a>
+        </div>
+      </div>
+
+      <div className="mt-8 flex gap-4">
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
       </div>
     </main>
   );
